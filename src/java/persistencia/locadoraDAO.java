@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import modelo.filmes;
 import modelo.generos;
+import modelo.usuarios;
 
 
 public class locadoraDAO {
@@ -79,7 +80,7 @@ public class locadoraDAO {
         conn = ConexaoFactory.getConexao();
         
         // Comando SQL 
-        SQL = "INSERT INTO filmes (nome, descricao ) " +
+        SQL = "INSERT INTO generos (nome, descricao ) " +
                                      "VALUES (?, ?)";
 
         preparedStatement = conn.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -105,7 +106,38 @@ public class locadoraDAO {
         
     }  
     
-   
+    public static void inserir(usuarios u) throws SQLException, ClassNotFoundException{
+        
+        Connection conn = null;
+        PreparedStatement  preparedStatement = null;
+        ResultSet rs = null;
+        String SQL = "";
+        
+        // Obtem conexao com BD
+        conn = ConexaoFactory.getConexao();
+        
+        // Comando SQL 
+        SQL = "INSERT INTO usuarios (login, nome, senha, perfil, status) " +
+                                     "VALUES (?, ?, ?, ?, ?)";
+
+        preparedStatement = conn.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
+
+        
+        
+        preparedStatement.setString(1, u.getLogin());
+        preparedStatement.setString(2, u.getNome());
+        preparedStatement.setString(3, u.getSenha());
+        preparedStatement.setString(4, u.getPerfil());
+        preparedStatement.setString(5, u.getStatus());
+        
+       
+        preparedStatement.executeUpdate();  
+ 
+        // Fechar conexao
+        conn.close();
+        
+    }  
+    
  /*   public static Aluno buscar(int id) throws SQLException, ClassNotFoundException{
         
         Connection conn = null;

@@ -49,5 +49,40 @@ public class UsuariosDAO {
         conn.close();
         
     }  
+     
+      public static boolean buscar(usuarios u) throws SQLException, ClassNotFoundException{
+        
+        Connection conn = null;
+        PreparedStatement  preparedStatement = null;
+        ResultSet rs = null;
+        String SQL = "";
+        boolean existe = false;
+        
+        // Obtem conexao com BD
+        conn = ConexaoFactory.getConexao();
+        
+        // Comando SQL 
+        SQL = "SELECT * FROM usuarios " +
+                " WHERE login = ? AND senha = ?";
+
+        preparedStatement = conn.prepareStatement(SQL);
+
+        preparedStatement.setString(1, u.getLogin());
+        preparedStatement.setString(2, u.getSenha());
+        
+                
+        // Para buscar informações
+        rs = preparedStatement.executeQuery();   
+
+        // Verifica se possui dados
+        if (rs.next()) {
+            existe = true;            
+         } 
+        
+        // Fechar conexao
+        conn.close();
+        
+        return existe;
+    }    
     
 }

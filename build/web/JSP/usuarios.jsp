@@ -14,13 +14,13 @@
     <body>
         <h1>Cadastro de Usuarios</h1>
         <hr>
-        <form action="UsuariosServlet">
+        <form action="../CadastrarUsuario">
         Login:<br>
          <input type="text" name="login" value="" /><br><br>
          Nome:<br>
          <input type="text" name="nome" value="" /><br><br>
          Senha:<br>
-         <input type="text" name="senha" value="" /><br><br>
+         <input type="password" name="senha" value="" /><br><br>
          Perfil:<br>
          <select name="perfil">
              <option>Funcionarios</option>

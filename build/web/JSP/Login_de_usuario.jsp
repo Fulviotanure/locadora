@@ -16,11 +16,11 @@
         <hr>
         
         <div>
-            <form>
+            <form action="../Autenticar">
                 Login:<br> 
-                <input type="text" name="nome de usuario:" value="" />  <br><br>      
+                <input type="text" name="login" value="" />  <br><br>      
                 Senha: <br> 
-                <input type="text" name="senha" value="" /> <br><br>
+                <input type="password" name="senha" value="" /> <br><br>
                 
                 <input type="submit" value="Logar" name="logar" />
                 <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>

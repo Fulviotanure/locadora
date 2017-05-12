@@ -7,11 +7,16 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import modelo.generos;
+import persistencia.GenerosDAO;
+import utilidades.PersonalizarMsgErro;
 
 /**
  *
@@ -31,7 +36,32 @@ public class GenerosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");        
+         String nome = request.getParameter("nome");
+         String descricao = request.getParameter("descricao");        
+         if(nome != null && descricao !=null){
+           
+            generos genero = new generos();          
+            genero.setNome(nome);
+            genero.setDescricao(descricao);
+
+            try {
+                GenerosDAO.inserir(genero);
+                request.setAttribute("msgsucess", "genero inserido com sucesso!");
+                
+            } catch (Exception ex) {
+                //Setando um atributo no request com a mensagem de erro;
+                request.setAttribute("msgErro", 
+                    "Ocorreu um erro ao salvar o genero: " + 
+                    PersonalizarMsgErro.getMensagem(ex.getMessage()));               
+                request.setAttribute("generos", genero);               
+            }             
+            
+             RequestDispatcher rd = request.getRequestDispatcher("JSP/generos.jsp");
+             rd.forward(request, response);
+            
+            return;  
+        } 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

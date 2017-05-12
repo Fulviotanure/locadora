@@ -19,11 +19,7 @@ import modelo.generos;
  */
 public class GenerosDAO {
     
-    
-    
-    
-    
-    
+
     public static void inserir(generos g) throws SQLException, ClassNotFoundException{
         
         Connection conn = null;
@@ -35,7 +31,7 @@ public class GenerosDAO {
         conn = ConexaoFactory.getConexao();
         
         // Comando SQL 
-        SQL = "INSERT INTO generos (nome, descricao ) " +
+        SQL = "INSERT INTO generos (nome, descricao) " +
                                      "VALUES (?, ?)";
 
         preparedStatement = conn.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);

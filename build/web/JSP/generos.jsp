@@ -14,14 +14,15 @@
     <body>
         <h1>Cadastro de Generos</h1>
         <hr>
-         
-        <form action="GenerosServlets">
-            Nome:
-            <input type="text" name="Nome" value="" /><br><br>
-            Descrção:
+         <div class="erro">${msgErro}</div>
+         <div class="erro">${msgsucess}</div>
+        <form action="../GenerosServlets">
+            Nome:<br>
+            <input type="text" name="nome" value="" /><br><br>
+            Descrção:<br>
             <input type="text" name="descricao" value="" /><br><br>
-             <input type="submit" value="Cadastrar" name="cadastrar" />
-                <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
+            <input type="submit" value="Cadastrar" name="cadastrar" />
+            <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
         
         
         </form>

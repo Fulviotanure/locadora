@@ -36,7 +36,7 @@ public class GenerosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");        
+        response.setContentType("text/html;charset=ISO-8859-1");        
          String nome = request.getParameter("nome");
          String descricao = request.getParameter("descricao");        
          if(nome != null && descricao !=null){
@@ -57,7 +57,7 @@ public class GenerosServlet extends HttpServlet {
                 request.setAttribute("generos", genero);               
             }             
             
-             RequestDispatcher rd = request.getRequestDispatcher("JSP/generos.jsp");
+             RequestDispatcher rd = request.getRequestDispatcher("generos.jsp");
              rd.forward(request, response);
             
             return;  

@@ -4,11 +4,11 @@
     Author     : sala308b
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>JSP Page</title>
     </head>
     <body>
@@ -16,10 +16,10 @@
         <hr>
          <div class="erro">${msgErro}</div>
          <div class="erro">${msgsucess}</div>
-        <form action="../GenerosServlets">
+         <form method="post"  action="GenerosServlets">
             Nome:<br>
             <input type="text" name="nome" value="" /><br><br>
-            DescrÃ§Ã£o:<br>
+            Descrção:<br>
             <input type="text" name="descricao" value="" /><br><br>
             <input type="submit" value="Cadastrar" name="cadastrar" />
             <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>

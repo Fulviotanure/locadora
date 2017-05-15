@@ -1,4 +1,4 @@
-package org.apache.jsp.JSP;
+package org.apache.jsp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -59,7 +59,7 @@ public final class generos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("         <div class=\"erro\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgsucess}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</div>\n");
-      out.write("         <form method=\"post\"  action=\"../GenerosServlets\">\n");
+      out.write("         <form method=\"post\"  action=\"GenerosServlets\">\n");
       out.write("            Nome:<br>\n");
       out.write("            <input type=\"text\" name=\"nome\" value=\"\" /><br><br>\n");
       out.write("            Descrção:<br>\n");

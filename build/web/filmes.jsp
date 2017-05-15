@@ -8,22 +8,33 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+        <jsp:useBean class="persistencia.GenerosDAO" id="dao"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <title>JSP Page</title>
     </head>
     <body>
         <h1>Cadastro de Filmes</h1>
         <hr>
         
-        <form action="FilmesServlets">
+        <form action="FilmesServlet">
          Titulo:<br>
          <input type="text" name="titulo" value="" /><br><br>
          Genero:<br>
          <select name="genero">
-             <option></option>
-             <option></option>
+             
+          <c:forEach items="${dao.listar()}" var="generos">  
+             
+             
+              <option value="${generos.codigo}">${generos.nome}</option>
+            
+             
+          </c:forEach>   
+             
          </select><br><br>
-         sinopse:<br>
+         Sinopse:<br>
          <textarea name="sinopse" rows="6" cols="20">
          </textarea><br><br>   
          Diretor:<br>

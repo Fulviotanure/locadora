@@ -20,9 +20,17 @@
         <h3>Somente usuário Logado terá acesso</h3>
         Bem vindo ${usuarioAutenticado} !<br><br>
         <hr>
-         <a href="JSP/usuarios.jsp"><input type="submit" value="Cadastrar Usuarios" name="usuarios" /></a><br><br>
-         <a href="JSP/filmes.jsp"><input type="submit" value="Cadastrar Novos Filmes" name="filmes" /></a><br><br>
-         <a href="JSP/generos.jsp"><input type="submit" value="Cadastrar Generos" name="generos" /></a><br>
+        
+        <%
+          
+            
+         out.println("<a href=\"JSP/usuarios.jsp\"><input type=\"submit\" value=\"Cadastrar Usuarios\" name=\"usuarios\" /></a><br><br>");
+         
+         %>
+         
+         
+         <a href="filmes.jsp"><input type="submit" value="Cadastrar Novos Filmes" name="filmes" /></a><br><br>
+         <a href="generos.jsp"><input type="submit" value="Cadastrar Generos" name="generos" /></a><br>
         
     </body>
 </html>

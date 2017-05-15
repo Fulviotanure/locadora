@@ -7,11 +7,17 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.filmes;
+import modelo.generos;
+import persistencia.FilmesDAO;
+import persistencia.GenerosDAO;
+import utilidades.PersonalizarMsgErro;
 
 /**
  *
@@ -29,9 +35,56 @@ public class FilmesServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=ISO-8859-1");  
+        
+         String titulo = request.getParameter("titulo");
+         String genero = request.getParameter("genero");
+         int generos = Integer.parseInt(genero);
+         
+         String sinopse = request.getParameter("sinopse");
+         String diretor = request.getParameter("diretor");
+         String ano = request.getParameter("ano");
+         int ano1 = Integer.parseInt(ano);
+         
+         String status = request.getParameter("status");
+       
+         
+         
+         
+         if(titulo != null && genero !=null && sinopse !=null && diretor !=null
+                 && ano !=null && status !=null){
+           
+            filmes filme = new filmes();  
+            
+            filme.setTitulo(titulo);
+            filme.setCod_genero(generos);
+            filme.setSinopse(sinopse);
+            filme.setDiretor(diretor);
+            filme.setAno_lancamento(ano1);
+            filme.setStatus(status);
+           
+
+            try {
+                FilmesDAO.inserir(filme);
+                request.setAttribute("msgsucess", "Filme inserido com sucesso!");
+                
+            } catch (Exception ex) {
+                //Setando um atributo no request com a mensagem de erro;
+                request.setAttribute("msgErro", 
+                    "Ocorreu um erro ao salvar o Filme: " + 
+                    PersonalizarMsgErro.getMensagem(ex.getMessage()));               
+                request.setAttribute("generos", genero);               
+            }             
+            
+             RequestDispatcher rd = request.getRequestDispatcher("filmes.jsp");
+             rd.forward(request, response);
+            
+            return;  
+        } 
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

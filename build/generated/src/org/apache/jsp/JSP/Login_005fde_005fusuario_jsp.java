@@ -57,7 +57,7 @@ public final class Login_005fde_005fusuario_jsp extends org.apache.jasper.runtim
       out.write("        <div>\n");
       out.write("            <form action=\"../Autenticar\">\n");
       out.write("                Login:<br> \n");
-      out.write("                <input type=\"text\" name=\"nome de usuario:\" value=\"\" />  <br><br>      \n");
+      out.write("                <input type=\"text\" name=\"login\" value=\"\" />  <br><br>      \n");
       out.write("                Senha: <br> \n");
       out.write("                <input type=\"password\" name=\"senha\" value=\"\" /> <br><br>\n");
       out.write("                \n");

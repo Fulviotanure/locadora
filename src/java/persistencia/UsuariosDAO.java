@@ -76,7 +76,17 @@ public class UsuariosDAO {
 
         // Verifica se possui dados
         if (rs.next()) {
-            existe = true;            
+            
+       
+        /*  usuarios usuario;
+          usuario = new usuarios();
+          usuario.setNome();
+          usuario.setLogin();
+          usuario.setSenha();
+          usuario.setPerfil();
+          usuario.setStatus();
+       
+          */
          } 
         
         // Fechar conexao

@@ -16,7 +16,7 @@
         <hr>
         
         <div>
-            <form action="../Autenticar">
+            <form action="Autenticar">
                 Login:<br> 
                 <input type="text" name="login" value="" />  <br><br>      
                 Senha: <br> 

@@ -17,7 +17,7 @@
         <div class="erro">${msgErro}</div>
          <div class="erro">${msgsucess}</div>
           <div class="erro">${msgvazio}</div>
-        <form action="../CadastrarUsuario">
+        <form action="CadastrarUsuario">
         Login:<br>
          <input type="text" name="login" value="" /><br><br>
          Nome:<br>

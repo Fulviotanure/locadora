@@ -50,15 +50,34 @@ public class AutenticarServlet extends HttpServlet {
             usuarios usuario = new usuarios();
             
             usuario.setLogin(login);            
-            usuario.setSenha(senha);           
+            usuario.setSenha(senha);
             usuario.setSenha(senhaCriptografada);                       
                         
             try {
                 //chamando o método buscar para verificar 
                 //se o usuário existe no banco de dados
-                boolean resultado = UsuariosDAO.buscar(usuario);
+                usuarios resultado = UsuariosDAO.buscar(usuario);
+                
+                
+                
+                if(resultado != null){
+                    if (resultado.getPerfil().equals("Administrador")){
+                    if (resultado.getStatus().equals("Ativo")){
+                    // Informo ao servidor qual usuario autenticado
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("usuarioAutenticado", login);
 
-                if(resultado == true){
+                      // Redireciona para uma pagina logada
+                    response.sendRedirect("PainelAdmin.jsp");
+
+                    return;
+                   }else{
+                    // Redireciona para uma pagina logada
+                    response.sendRedirect("usuarioInativo.jsp");
+                    }      
+                }else{
+                        if (resultado.getPerfil().equals("Funcionarios")){
+                    if (resultado.getStatus().equals("Ativo")){
                     // Informo ao servidor qual usuario autenticado
                     HttpSession session = request.getSession(true);
                     session.setAttribute("usuarioAutenticado", login);
@@ -68,7 +87,13 @@ public class AutenticarServlet extends HttpServlet {
 
                     return;
 
-                }                
+                  }else{
+                    // Redireciona para uma pagina logada
+                    response.sendRedirect("usuarioInativo.jsp");
+                    }         
+                }
+              }
+           }
                 
             } catch (Exception ex) {
                 throw new ServletException(ex);

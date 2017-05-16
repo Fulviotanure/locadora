@@ -15,10 +15,11 @@
     <body>
         <h1>Painel Usuário</h1>
         <hr>
-        <h3>FUNCIONÁRIOS</h3>
+        <h3>ADMINISTRADOR</h3>
         Usuario Logado: ${usuarioAutenticado} <br><br>
         <hr>
-      
+           
+         <a href="JSP/usuarios.jsp"><input type="submit" value="Cadastrar Usuarios" name="usuarios" /></a><br><br>
          <a href="filmes.jsp"><input type="submit" value="Cadastrar Novos Filmes" name="filmes" /></a><br><br>
          <a href="generos.jsp"><input type="submit" value="Cadastrar Generos" name="generos" /></a><br><br>
          <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a>

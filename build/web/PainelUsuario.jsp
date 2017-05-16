@@ -15,22 +15,14 @@
     <body>
         <h1>Painel Usuário</h1>
         <hr>
-        <a href="javascript:history.back()">Voltar</a><br>
-        <a href="Logout">Logout</a><br>
-        <h3>Somente usuário Logado terá acesso</h3>
-        Bem vindo ${usuarioAutenticado} !<br><br>
+        <h3>FUNCIONÁRIOS</h3>
+        Usuario Logado: ${usuarioAutenticado} <br><br>
         <hr>
-        
-        <%
-          
-            
-         out.println("<a href=\"JSP/usuarios.jsp\"><input type=\"submit\" value=\"Cadastrar Usuarios\" name=\"usuarios\" /></a><br><br>");
-         
-         %>
-         
-         
+      
          <a href="filmes.jsp"><input type="submit" value="Cadastrar Novos Filmes" name="filmes" /></a><br><br>
-         <a href="generos.jsp"><input type="submit" value="Cadastrar Generos" name="generos" /></a><br>
-        
+         <a href="generos.jsp"><input type="submit" value="Cadastrar Generos" name="generos" /></a><br><br>
+         <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a>
+         <a href="Logout"><input type="button" value="Logout" name="logout" /></a><br><br>
+         <a href="JSP/Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
     </body>
 </html>

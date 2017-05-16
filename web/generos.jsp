@@ -23,7 +23,7 @@
             <input type="text" name="descricao" value="" /><br><br>
             <input type="submit" value="Cadastrar" name="cadastrar" />
             <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
-        
+        <a href="JSP/Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
         
         </form>
         

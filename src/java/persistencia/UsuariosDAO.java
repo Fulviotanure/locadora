@@ -24,6 +24,7 @@ public class UsuariosDAO {
         PreparedStatement  preparedStatement = null;
         ResultSet rs = null;
         String SQL = "";
+      
         
         // Obtem conexao com BD
         conn = ConexaoFactory.getConexao();
@@ -50,13 +51,13 @@ public class UsuariosDAO {
         
     }  
      
-      public static boolean buscar(usuarios u) throws SQLException, ClassNotFoundException{
-        
+      public static usuarios buscar(usuarios u) throws SQLException, ClassNotFoundException{
+        usuarios usuario = null;
         Connection conn = null;
         PreparedStatement  preparedStatement = null;
         ResultSet rs = null;
         String SQL = "";
-        boolean existe = false;
+        
         
         // Obtem conexao com BD
         conn = ConexaoFactory.getConexao();
@@ -76,23 +77,20 @@ public class UsuariosDAO {
 
         // Verifica se possui dados
         if (rs.next()) {
-            
-       
-        /*  usuarios usuario;
+    
           usuario = new usuarios();
-          usuario.setNome();
-          usuario.setLogin();
-          usuario.setSenha();
-          usuario.setPerfil();
-          usuario.setStatus();
-       
-          */
+          usuario.setNome(rs.getString("nome"));
+          usuario.setLogin(rs.getString("login"));
+          usuario.setSenha(rs.getString("senha"));
+          usuario.setPerfil(rs.getString("perfil"));
+          usuario.setStatus(rs.getString("status"));
+ 
          } 
         
         // Fechar conexao
         conn.close();
         
-        return existe;
+        return usuario;
     }    
     
 }

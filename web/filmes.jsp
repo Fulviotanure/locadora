@@ -18,6 +18,9 @@
     <body>
         <h1>Cadastro de Filmes</h1>
         <hr>
+        <div class="erro">${msgErro}</div>
+         <div class="erro">${msgsucess}</div>
+          <div class="erro">${msgvazio}</div>
         
         <form action="FilmesServlet">
          Titulo:<br>
@@ -48,7 +51,7 @@
          </select><br><br>
           <input type="submit" value="Cadastrar" name="cadastrar" />
                 <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
-            <a href="JSP/Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
+            <a href="Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
         </form>
         
         

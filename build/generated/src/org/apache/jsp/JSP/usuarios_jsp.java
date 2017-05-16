@@ -69,9 +69,9 @@ public final class usuarios_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("         <select name=\"status\">\n");
       out.write("             <option>Ativo</option>\n");
       out.write("             <option>Inativo</option>\n");
-      out.write("         </select><br><br>\n");
+      out.write("          </select><br><br>\n");
       out.write("          <input type=\"submit\" value=\"Cadastrar\" name=\"cadastrar\" />\n");
-      out.write("                <a href=\"javascript:history.back()\"><input type=\"button\" value=\"Voltar\" name=\"voltar\" /></a><br><br>\n");
+      out.write("          <a href=\"javascript:history.back()\"><input type=\"button\" value=\"Voltar\" name=\"voltar\" /></a><br><br>\n");
       out.write("         \n");
       out.write("            \n");
       out.write("            \n");

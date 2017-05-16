@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package controle;
 
 import java.io.IOException;
@@ -17,16 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.usuarios;
 
-/**
- *
- * @author sala304b
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
-@WebFilter(filterName = "FiltroAutenticacao", urlPatterns = {"/PainelUsuario.jsp","/PainelAdmin.jsp"})
-public class FiltroAutenticacao implements Filter{
+/**
+ *
+ * @author sala308b
+ */
+@WebFilter(filterName = "FiltroURL", urlPatterns = {"/PainelAdmin.jsp"})
+public class FiltroURL implements Filter{
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {        
+    public void init(FilterConfig filterConfig) throws ServletException {
     }
 
     @Override
@@ -39,12 +41,14 @@ public class FiltroAutenticacao implements Filter{
         //Pega o parametro usuarioAutenticado da sessão
         usuarios usuario = (usuarios) req.getSession().getAttribute("usuarioAutenticado");
         
+        
         //Se o usuário não está logado redireciona para a página de login
-        if(usuario == null){
+        if(usuario.getPerfil().equals("Funcionarios") ){
             res.sendRedirect("Login_de_usuario.jsp");
         }else{
             //passa pelo filtro e abre a url requisistada
             chain.doFilter(request, response);
+            
         }
         
     }

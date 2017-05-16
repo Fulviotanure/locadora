@@ -59,6 +59,9 @@ public final class generos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("         <div class=\"erro\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgsucess}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</div>\n");
+      out.write("          <div class=\"erro\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgvazio}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\n");
       out.write("         <form method=\"post\"  action=\"GenerosServlets\">\n");
       out.write("            Nome:<br>\n");
       out.write("            <input type=\"text\" name=\"nome\" value=\"\" /><br><br>\n");
@@ -66,7 +69,7 @@ public final class generos_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <input type=\"text\" name=\"descricao\" value=\"\" /><br><br>\n");
       out.write("            <input type=\"submit\" value=\"Cadastrar\" name=\"cadastrar\" />\n");
       out.write("            <a href=\"javascript:history.back()\"><input type=\"button\" value=\"Voltar\" name=\"voltar\" /></a><br><br>\n");
-      out.write("        \n");
+      out.write("        <a href=\"JSP/Login_de_usuario.jsp\"><input type=\"button\" value=\"IR A PAGINA DE LOGIN\" name=\"LOGIN\" /></a>\n");
       out.write("        \n");
       out.write("        </form>\n");
       out.write("        \n");

@@ -19,6 +19,6 @@
         <hr>
         <hr>
         <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a>
-        <a href="JSP/Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
+        <a href="Login_de_usuario.jsp"><input type="button" value="IR A PAGINA DE LOGIN" name="LOGIN" /></a>
     </body>
 </html>

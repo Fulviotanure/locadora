@@ -39,7 +39,7 @@ public class GenerosServlet extends HttpServlet {
         response.setContentType("text/html;charset=ISO-8859-1");        
          String nome = request.getParameter("nome");
          String descricao = request.getParameter("descricao");        
-         if(nome != null && descricao !=null){
+         if(!nome.equals("")){
            
             generos genero = new generos();          
             genero.setNome(nome);
@@ -61,7 +61,16 @@ public class GenerosServlet extends HttpServlet {
              rd.forward(request, response);
             
             return;  
-        } 
+        }else{
+  
+           request.setAttribute("msgvazio", "Complete todos os campos!");
+           RequestDispatcher rd1 = request.getRequestDispatcher("generos.jsp");
+           rd1.forward(request, response);
+        }
+         
+         
+         
+         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

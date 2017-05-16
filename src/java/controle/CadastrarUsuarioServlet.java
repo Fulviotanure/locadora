@@ -46,7 +46,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String status = request.getParameter("status");
         
         
-        if(nome != null && senha !=null){
+        if(!nome.equals("") && !senha.equals("") && !login.equals("")){
             //Criptografando a senha do usuário
             String senhaCriptografada = DigestUtils.sha512Hex(senha);
 
@@ -59,6 +59,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
 
             try {
                 UsuariosDAO.inserir(usuario);
+                 request.setAttribute("msgsucess", "Usuário inserido com sucesso!");
             } catch (Exception ex) {
                 //Setando um atributo no request com a mensagem de erro;
                 request.setAttribute("msgErro", 
@@ -77,12 +78,13 @@ public class CadastrarUsuarioServlet extends HttpServlet {
             session.setAttribute("usuarioAutenticado", nome);
 
             // Redireciona para uma pagina logada
-            response.sendRedirect("PainelUsuario.jsp");
+            response.sendRedirect("PainelAdmin.jsp");
 
             return;
-                
-            
-            
+        }else{
+         request.setAttribute("msgvazio", "Complete todos os campos!");
+           RequestDispatcher rd1 = request.getRequestDispatcher("usuarios.jsp");
+           rd1.forward(request, response);
         }
         
         try (PrintWriter out = response.getWriter()) {

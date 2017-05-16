@@ -14,6 +14,9 @@
     <body>
         <h1>Cadastro de Usuarios</h1>
         <hr>
+        <div class="erro">${msgErro}</div>
+         <div class="erro">${msgsucess}</div>
+          <div class="erro">${msgvazio}</div>
         <form action="../CadastrarUsuario">
         Login:<br>
          <input type="text" name="login" value="" /><br><br>
@@ -30,9 +33,9 @@
          <select name="status">
              <option>Ativo</option>
              <option>Inativo</option>
-         </select><br><br>
+          </select><br><br>
           <input type="submit" value="Cadastrar" name="cadastrar" />
-                <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
+          <a href="javascript:history.back()"><input type="button" value="Voltar" name="voltar" /></a><br><br>
          
             
             

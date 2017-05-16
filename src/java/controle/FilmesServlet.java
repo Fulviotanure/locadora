@@ -54,8 +54,8 @@ public class FilmesServlet extends HttpServlet {
          
          
          
-         if(titulo != null && genero !=null && sinopse !=null && diretor !=null
-                 && ano !=null && status !=null){
+         if(!titulo.equals("") && !genero.equals("") && !sinopse.equals("") && !diretor.equals("")
+                 && !ano.equals("") && !status.equals("")){
            
             filmes filme = new filmes();  
             
@@ -83,6 +83,10 @@ public class FilmesServlet extends HttpServlet {
              rd.forward(request, response);
             
             return;  
+        }else{
+         request.setAttribute("msgvazio", "Complete todos os campos!");
+           RequestDispatcher rd1 = request.getRequestDispatcher("filmes.jsp");
+           rd1.forward(request, response);
         } 
 
         try (PrintWriter out = response.getWriter()) {

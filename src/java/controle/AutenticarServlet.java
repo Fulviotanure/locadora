@@ -65,7 +65,7 @@ public class AutenticarServlet extends HttpServlet {
                     if (resultado.getStatus().equals("Ativo")){
                     // Informo ao servidor qual usuario autenticado
                     HttpSession session = request.getSession(true);
-                    session.setAttribute("usuarioAutenticado", login);
+                    session.setAttribute("usuarioAutenticado", resultado);
 
                       // Redireciona para uma pagina logada
                     response.sendRedirect("PainelAdmin.jsp");
@@ -80,7 +80,7 @@ public class AutenticarServlet extends HttpServlet {
                     if (resultado.getStatus().equals("Ativo")){
                     // Informo ao servidor qual usuario autenticado
                     HttpSession session = request.getSession(true);
-                    session.setAttribute("usuarioAutenticado", login);
+                    session.setAttribute("usuarioAutenticado", resultado);
 
                     // Redireciona para uma pagina logada
                     response.sendRedirect("PainelUsuario.jsp");

@@ -44,10 +44,36 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String senha = request.getParameter("senha");
         String perfil = request.getParameter("perfil");
         String status = request.getParameter("status");
+        String msgErro = "";
        
+    
+        if(login.equals("")){
+        msgErro = "insira o login";
         
-        if(!nome.equals("") && !senha.equals("") && !login.equals("")){
-            //Criptografando a senha do usuário
+        }else if(nome.equals("")){
+        msgErro = "insira o nome";
+        
+        }else if(senha.equals("")){
+        msgErro = "insira a senha";
+            
+        }else if(login.trim().length() >=5){
+        msgErro = "o login não pode ter menos de 5 caracter";
+       
+        }else if(senha.trim().length() !=6){
+        msgErro = "o login não pode ter menos de 5 caracter";    
+        
+        }else if(senha.contains(" ")){
+        msgErro = "a senha não pode conter espaço";
+              
+        }else  if(login.contains(" ")){
+        msgErro = "o login não pode conter espaço";
+              
+        }else if(login.equals(senha) || senha.equals(nome)){
+        msgErro = "o login e senha não podem ser iguais";
+          }
+       
+      
+
             String senhaCriptografada = DigestUtils.sha512Hex(senha);
 
             usuarios usuario = new usuarios();
@@ -61,6 +87,11 @@ public class CadastrarUsuarioServlet extends HttpServlet {
             try {
                 UsuariosDAO.inserir(usuario);
                  request.setAttribute("msgsucess", "Usuário inserido com sucesso!");
+                 RequestDispatcher rd = request.getRequestDispatcher("usuarios.jsp");
+                 rd.forward(request, response);
+
+            return;
+            
             } catch (Exception ex) {
                 //Setando um atributo no request com a mensagem de erro;
                 request.setAttribute("msgErro", 
@@ -73,17 +104,11 @@ public class CadastrarUsuarioServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("CadastroUsuario.jsp");
                 rd.forward(request, response);
                 //throw new ServletException(ex);
+             
             } 
-           RequestDispatcher rd = request.getRequestDispatcher("usuarios.jsp");
-             rd.forward(request, response);
-
-            return;
-        }else{
-         request.setAttribute("msgvazio", "Complete todos os campos!");
-           RequestDispatcher rd1 = request.getRequestDispatcher("usuarios.jsp");
-           rd1.forward(request, response);
-        }
-        
+           
+       
+   
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -98,8 +123,9 @@ public class CadastrarUsuarioServlet extends HttpServlet {
             out.println("<h3>Login ou Senha Incorretos!</h3>");
             out.println("</body>");
             out.println("</html>");
-        }
+        } 
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

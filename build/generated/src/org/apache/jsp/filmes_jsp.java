@@ -76,6 +76,15 @@ public final class filmes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        <h1>Cadastro de Filmes</h1>\n");
       out.write("        <hr>\n");
+      out.write("        <div class=\"erro\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgErro}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\n");
+      out.write("         <div class=\"erro\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgsucess}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\n");
+      out.write("          <div class=\"erro\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msgvazio}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\n");
       out.write("        \n");
       out.write("        <form action=\"FilmesServlet\">\n");
       out.write("         Titulo:<br>\n");
@@ -89,7 +98,7 @@ public final class filmes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("   \n");
       out.write("             \n");
       out.write("         </select><br><br>\n");
-      out.write("         sinopse:<br>\n");
+      out.write("         Sinopse:<br>\n");
       out.write("         <textarea name=\"sinopse\" rows=\"6\" cols=\"20\">\n");
       out.write("         </textarea><br><br>   \n");
       out.write("         Diretor:<br>\n");
@@ -103,7 +112,7 @@ public final class filmes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("         </select><br><br>\n");
       out.write("          <input type=\"submit\" value=\"Cadastrar\" name=\"cadastrar\" />\n");
       out.write("                <a href=\"javascript:history.back()\"><input type=\"button\" value=\"Voltar\" name=\"voltar\" /></a><br><br>\n");
-      out.write("            \n");
+      out.write("            <a href=\"Login_de_usuario.jsp\"><input type=\"button\" value=\"IR A PAGINA DE LOGIN\" name=\"LOGIN\" /></a>\n");
       out.write("        </form>\n");
       out.write("        \n");
       out.write("        \n");

@@ -5,8 +5,10 @@
  */
 package controle;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.filmes;
 import modelo.generos;
+import modelo.usuarios;
 import persistencia.FilmesDAO;
 import persistencia.GenerosDAO;
 import utilidades.PersonalizarMsgErro;
@@ -50,7 +53,9 @@ public class FilmesServlet extends HttpServlet {
          int ano1 = Integer.parseInt(ano);
          
          String status = request.getParameter("status");
-       
+         
+         
+        usuarios Usuario = (usuarios) request.getSession().getAttribute("usuarioAutenticado");
          
          
          
@@ -65,7 +70,8 @@ public class FilmesServlet extends HttpServlet {
             filme.setDiretor(diretor);
             filme.setAno_lancamento(ano1);
             filme.setStatus(status);
-           
+            filme.setUsuario_cadastro(Usuario);
+            filme.setDatahora_cadastro(new Date());
 
             try {
                 FilmesDAO.inserir(filme);
@@ -76,7 +82,7 @@ public class FilmesServlet extends HttpServlet {
                 request.setAttribute("msgErro", 
                     "Ocorreu um erro ao salvar o Filme: " + 
                     PersonalizarMsgErro.getMensagem(ex.getMessage()));               
-                request.setAttribute("generos", genero);               
+                              
             }             
             
              RequestDispatcher rd = request.getRequestDispatcher("filmes.jsp");

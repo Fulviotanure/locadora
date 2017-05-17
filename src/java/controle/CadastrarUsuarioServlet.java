@@ -44,7 +44,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String senha = request.getParameter("senha");
         String perfil = request.getParameter("perfil");
         String status = request.getParameter("status");
-        
+       
         
         if(!nome.equals("") && !senha.equals("") && !login.equals("")){
             //Criptografando a senha do usuário
@@ -56,6 +56,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
             usuario.setStatus(status);
             usuario.setPerfil(perfil);
             usuario.setSenha(senhaCriptografada);
+            
 
             try {
                 UsuariosDAO.inserir(usuario);
@@ -73,12 +74,8 @@ public class CadastrarUsuarioServlet extends HttpServlet {
                 rd.forward(request, response);
                 //throw new ServletException(ex);
             } 
-            // Informo ao servidor qual usuario autenticado
-            HttpSession session = request.getSession(true);
-            session.setAttribute("usuarioAutenticado", nome);
-
-            // Redireciona para uma pagina logada
-            response.sendRedirect("PainelAdmin.jsp");
+           RequestDispatcher rd = request.getRequestDispatcher("usuarios.jsp");
+             rd.forward(request, response);
 
             return;
         }else{

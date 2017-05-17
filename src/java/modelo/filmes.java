@@ -5,7 +5,9 @@
  */
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 /**
  *
@@ -19,13 +21,13 @@ public class filmes {
     private String diretor;
     private int ano_lancamento;
     private String status;
-    private String usuario_cadastro;
+    private usuarios usuario_cadastro;
     private Date datahora_cadastro;
 
     public filmes() {
     }
 
-    public filmes(int codigo, String titulo, int cod_genero, String sinopse, String diretor, int ano_lancamento, String status, String usuario_cadastro, Date datahora_cadastro) {
+    public filmes(int codigo, String titulo, int cod_genero, String sinopse, String diretor, int ano_lancamento, String status, usuarios usuario_cadastro, Date datahora_cadastro) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.cod_genero = cod_genero;
@@ -138,14 +140,14 @@ public class filmes {
     /**
      * @return the usuario_cadastro
      */
-    public String getUsuario_cadastro() {
+    public usuarios getUsuario_cadastro() {
         return usuario_cadastro;
     }
 
     /**
      * @param usuario_cadastro the usuario_cadastro to set
      */
-    public void setUsuario_cadastro(String usuario_cadastro) {
+    public void setUsuario_cadastro(usuarios usuario_cadastro) {
         this.usuario_cadastro = usuario_cadastro;
     }
 
@@ -162,8 +164,7 @@ public class filmes {
     public void setDatahora_cadastro(Date datahora_cadastro) {
         this.datahora_cadastro = datahora_cadastro;
     }
-    
-        
+
     
     
     

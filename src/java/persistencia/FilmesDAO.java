@@ -34,7 +34,7 @@ public class FilmesDAO {
         // Comando SQL 
         SQL = "INSERT INTO filmes (titulo, cod_genero, sinopse, diretor,ano_lancamento,"
                 + " status, usuario_cadastro, datahora_cadastro) " +
-                                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         preparedStatement = conn.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
 
@@ -45,7 +45,7 @@ public class FilmesDAO {
         preparedStatement.setString(4, f.getDiretor());
         preparedStatement.setInt(5, f.getAno_lancamento());
         preparedStatement.setString(6, f.getStatus());
-        preparedStatement.setString(7, f.getUsuario_cadastro());
+        preparedStatement.setString(7, f.getUsuario_cadastro().getLogin());
         
         // Nao existe tipo de dado java.util.Date no 
         //JDBC entao temos que fazer uma conversao
